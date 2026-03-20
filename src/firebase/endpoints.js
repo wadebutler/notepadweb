@@ -18,6 +18,10 @@ export const addNote = async (note) => {
   await set(newRef, { ...note, createdAt: Date.now() });
 };
 
+export const updateNote = async (id, note) => {
+  await set(ref(db, `notes/${id}`), { ...note, createdAt: Date.now() });
+};
+
 export const deleteNote = async (id) => {
   await remove(ref(db, `notes/${id}`));
 };
